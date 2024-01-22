@@ -25,7 +25,7 @@ uvicorn src.main:app --reload
 
 далее запустить команды:
 ````
-pip intall -r requirements.txt
+pip install -r requirements.txt
 ````
 ````
 alembic upgrade 7622307d6eae
