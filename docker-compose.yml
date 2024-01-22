@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d postgres -U postgres" ]
+      interval: 5s
+      timeout: 20s
+      retries: 100
+    ports:
+      - "555:5432"
+
+#    expose:
+#      - 5432
+#    networks:
+#      - web_network
+
+#  web:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    env_file:
+#      - .env
+#    entrypoint: >
+#      sh -c "
+#        alembic upgrade 7622307d6eae
+#        uvicorn src.main:app --host 0.0.0.0 --reload
+#      "
+#    volumes:
+#      - .:/app
+#    networks:
+#      - web_network
+#    ports:
+#     - "8000:8000"
+#    depends_on:
+#      db:
+#        condition: service_healthy
+#networks:
+#  web_network:
+#    name: web_network
