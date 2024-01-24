@@ -28,7 +28,8 @@ services:
       - .env
     entrypoint: >
       sh -c "
-        uvicorn src.main:app --host 0.0.0.0 --reload
+        python3 /app/src/db_creation.py &&
+        uvicorn src.main:app --host 0.0.0.0 --reload 
       "
     volumes:
       - .:/app
