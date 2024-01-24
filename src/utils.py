@@ -21,8 +21,7 @@ async def get_object_by_id(
     return entity
 
 
-async def get_counts_for_menu(
-        menu_id: UUID, session: AsyncSession = Depends(get_async_session)):
+async def get_counts_for_menu(menu_id: UUID, session: AsyncSession = Depends(get_async_session)):
     submenus_count = await session.scalar(
         select(func.count(SubMenu.id)).join(Menu).where(SubMenu.menu_id == menu_id))
     dishes_count = await session.scalar(

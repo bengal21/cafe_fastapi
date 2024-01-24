@@ -9,7 +9,7 @@ docker run --name db_for_cafe -p 555:5432 -e POSTGRES_PASSWORD=postgres -d postg
 ````
 запусти следующие команды:
 ````
-pip intall -r requirements.txt
+pip install -r requirements.txt
 ````
 ````
 alembic upgrade 7622307d6eae
@@ -25,7 +25,7 @@ uvicorn src.main:app --reload
 
 далее запустить команды:
 ````
-pip intall -r requirements.txt
+pip install -r requirements.txt
 ````
 ````
 alembic upgrade 7622307d6eae
